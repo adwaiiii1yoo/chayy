@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Chayy 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffd6ec, #ffe9f0);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: #d63384;
+      animation: float 2.5s ease-in-out infinite;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #333;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 1rem auto;
+    }
+
+    .balloons {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .balloon {
+      width: 40px;
+      height: 55px;
+      position: absolute;
+      background: radial-gradient(circle at 30% 30%, #ff6ec4, #e92a91);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: floatBalloons 6s linear infinite;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .balloon::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 6px;
+      background: #e92a91;
+      border-radius: 20% 20% 50% 50%;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 30px;
+      background: #555;
+      border-radius: 1px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes floatBalloons {
+      0% {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+
+    audio {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy 24, Chayy! 🍻</h1>
+    <p>Chaithra, you just turned 24  still the top nerd in the fam, no doub't 😹</p>
+    <p>I’ve been into tech from the start  but you were the first to really make it there. Just following the trail you lit 😌</p>
+    <p>One day, you’ll be building it — and I’ll be the one breaking in 😉 hehe</p>
+    <p>Wishing you a birthday that’s as awesome as you are 🙂, filled with laughs, fun, and everything you love.</p>
+    <p>Once again, happy birthday 😘🫂🫶</p>
+    <p><strong>With love, from Hari</strong></p>
+    <p><em>“Enne konde ithree pattuu 🤝”</em></p>
+  </div>
+
+  <!-- Music -->
+  <audio controls autoplay loop>
+    <source src="anirudh-ravichander-the-birthday-gift.m4a" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Balloons -->
+  <div class="balloons"></div>
+
+  <script>
+    const balloonContainer = document.querySelector('.balloons');
+    const colors = ['#ff6ec4', '#ff9a8b', '#fcb045', '#42a5f5', '#ab47bc'];
+
+    for (let i = 0; i < 40; i++) {
+      let balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      balloon.style.left = Math.random() * 100 + 'vw';
+      balloon.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      balloon.style.background = `radial-gradient(circle at 30% 30%, ${colors[i % colors.length]}, #2222)`;
+      balloonContainer.appendChild(balloon);
+    }
+  </script>
+</body>
+</html>
